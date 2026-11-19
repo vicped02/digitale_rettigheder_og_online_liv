@@ -2,6 +2,6 @@
 
 **Opgave:** Digitale rettigheder & online liv - Dit Online Liv
 
-**Programmer** Figma, VSCODE, Adobe Photoshop
+**Programmer:** Figma, VSCODE, Adobe Photoshop
 
-**Teknologier** HTML, CSS
+**Teknologier:** HTML, CSS
