@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    
+<!--Favicon-->
+<link rel="icon" type="image/png" href="img/favicon.png">
+
+<!--Poppins skrifttype hentet fra Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+<!--Font Awesome link-->
+    <script src="https://kit.fontawesome.com/3b1f40fc5a.js"></script>
+</head>
+
+<body>
+<!--NAVIGATION (GENBRUGT FRA INDEX.HTML)-->
+<header class="header">
+
+    <!--Logo-->
+    <div class="logo">
+    <a href="index.html">
+    <img src="img/Logo.png" alt="Dit Online liv" class="nav-logo">
+    </a>
+    </div>
+
+<!--Mobilversion skrives her imellem logo og nav (genbrugt fra index.html)-->
+<input type="checkbox" id="menu-toggle" class="menu-toggle"> <!--Checkbox har styr på om mobilmenuen er åben eller ej-->
+
+<!--Label gør så man kan klikke på hamburger ikonet-->
+<label for="menu-toggle" class="hamburger" aria-label="Åben eller luk menuen">
+    <!--Dette vises når menuen er lukket. Derfor skrives der "menu-aaben" inde i Font Awesom ikonet så vi kan kalde på det i css-->
+    <i class="fa-solid fa-bars menu-aaben" aria-hidden="true"></i>
+
+
+<!--Dette vises når menuen er åben-->
+    <i class="fa-solid fa-xmark menu-luk" aria-hidden="true"></i>
+</label>
+
+<!--Nav menu-->
+    <nav class="navigation">
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="guide.html">Guide</a></li>
+            <li class="active"><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+<!--Søgefelt skulle have været her, men blev ikke prioriteret at lave denne gang-->
+
+    <!--Sprogvælger ikon-->
+    <div class="sprogvælger">
+        <a href="#" class="globus">
+    <i class="fa-solid fa-globe"></i>
+        </a> 
+    </div>
+    </header>
+
+<!--MAIN INDHOLDET-->
+<main>
+
+<!--HERO SEKTIONEN-->
+<section class="kontakt-hero">
+
+<!--Hero billede-->
+<img src="img/kontakt-hero.png" alt="Mand der taler i telefon ved sin computer" class="kontakt-hero-billede">
+
+<!--Lille tekst, overskrift, tekst og CTA's oven på billedet-->
+<div class="kontakt-hero-indhold">
+    <p class="kontakt-lille-tekst">Kontakt</p>
+    <h1>Kontakt os</h1>
+    <p class="kontakt-længere-tekst">Har du spørgsmål om digitale rettigheder, privatliv eller sikkerhed online? Så sidder vi klar ved tasterne.</p>
+
+    <div class="kontakt-hero-ctas">
+
+<!--Skriv til os CTA der har smooth scroll ned til kontaktformularen-->
+    <a href="#kontaktformular" class="kontakt-cta">
+        Skriv til os
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    </a>
+
+<!--Ring på.. CTA der i praksis ville åbne opkaldsfunktion (pick an app)-->
+    <a href="tel:+4511223344" class="kontakt-cta-2">
+        Ring på +45 11 22 33 44
+    </a>
+    
+    </div>
+</div>
+
+</section>
+
+<!--KONTAKT-SEKTION-->
+<section class="kontakt-sektion" id="kontaktformular">
+
+<!--KONTAKT TEKST OG INFORMATIONER (VENSTRE SIDE)-->
+<div class="kontakt-info">
+<h2>Vi vil gerne høre fra dig</h2>
+<p>Send os en besked via kontaktformlularen eller skriv til os direkte herunder. Vi stræber os på at svare inden for 1-2 hverdage.</p>
+
+<!--Telefon nummer og ikon-->
+<div class="kontakt-info-punkt">
+    <div class="kontakt-info-ikon">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+    </div>
+    <a href="tel:+4511223344">+45 11 22 33 44</a>
+</div>
+
+<!--E-mail og ikon-->
+<div class="kontakt-info-punkt">
+    <div class="kontakt-info-ikon">
+        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+    </div>
+    <a href="mailto:kontakt@ditonlineliv.dk">kontakt@ditonlineliv.dk</a>
+</div>
+
+</div>
+
+<!--KONTAKTFORMULAR (HØJRE SIDE)-->
+<div class="kontakt-formular-kasse">
+<h2>Send os en besked</h2>
+<p>Felterne markeret med * er obligatoriske</p>
+
+<!--Selve formularen-->
+<form class="kontakt-formular">
+
+<!--Fulde navn-->
+<div class="formular-felt">
+    <label for="navn">Fulde navn *</label>
+    <input type="text" id="navn" name="navn" placeholder="Skriv dit navn" required>
+</div>
+
+<!--E-mailadresse-->
+<div class="formular-felt">
+    <label for="email">E-mailadresse *</label>
+    <input type="email" id="email" name="email" placeholder="navn@eksempel.dk" required>
+</div>
+
+<!--Hvad drejer din henvendelse sig om-->
+<div class="formular-felt">
+    <label for="emne">Hvad drejer din henvendelse sig om? *</label>
+    <select name="emne" id="emne" required>
+        <option value="" disabled selected>Vælg et emne</option>
+        <option value="privatliv">Privatliv</option>
+        <option value="kildekritik">Kildekritik</option>
+        <option value="ai">Kunstig intelligens</option>
+        <option value="andet">Andet</option>
+    </select>
+</div>
+
+<!--Din besked-->
+<div class="formular-felt">
+    <label for="besked">Din besked *</label>
+    <textarea name="besked" id="besked" placeholder="Skriv din besked her..." required></textarea>
+</div>
+
+<!--Send besked-->
+<button type="submit" class="kontakt-send-besked-knap">
+    Send besked
+    <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+</main>
+
+<!--FOOTER SEKTIONEN (GENBRUGT FRA INDEX.HTML)-->
+<!--Section er et mere semantisk element som man bruger når noget indhold hænger sammen som en mere selvstændig sektion, så her ville man en anden gang have brugt section i stedet for div-->
+<footer class="footer">
+
+<!--Logo og slogan-->
+<div class="footer-logo">
+    <img src="img/Logo-footer.png" alt="Dit Online Liv" class="footer-rigtige-logo">
+    <p>- Bliv klogere på dit online liv</p>
+</div>
+
+<!--Genveje-->
+<div class="footer-genveje">
+    <h3>Genveje</h3>
+    <a href="index.html">Forside</a>
+    <a href="guide.html">Guide</a>
+    <a href="kontakt.html">Kontakt os</a>
+</div>
+
+<!--Følg os-->
+<div class="footer-følg-os">
+    <h3>Følg os</h3>
+    
+    <a href="#" aria-label="Facebook"> <!--fortæller en skærmlæser at dette link fører dem hen til Facebook-->
+        <i class="fa-brands fa-facebook" aria-hidden="true"></i> <!--fortæller en skærmlæser at den skal ignorere ikonen fordi det fortæller aria-label allerede-->
+    </a>
+
+    <a href="#" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+    </a>
+
+    <a href="#" aria-label="Linkedin">
+        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+    </a>
+</div>
+
+<!--Kontakt os-->
+<div class="footer-kontakt-os">
+    <h3>Kontakt os</h3>
+    <p>
+        <a href="tel:11223344">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i> <!--Ikonet er inde i a-taget så det også er klikbart-->
+            +45 11 22 33 44</a>
+    </p>
+
+    <p>
+        <a href="mailto:kontakt@ditonlineliv.dk">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            kontakt@ditonlineliv.dk</a>
+    </p>
+</div>
+</footer>
+
+</body>
+</html>

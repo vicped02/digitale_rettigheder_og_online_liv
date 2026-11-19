@@ -1,0 +1,1861 @@
+/*DESKTOP VERSION (MIN-WIDTH). Er godt klar over vi altid skal bruge mobile first approach, men det blev vist sådan her i en af undervisningerne, så det var sådan jeg også begyndte den.*/
+/*GENEREL STYLING (FJERNER STANDARD AFSTANDE)*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*Almindelig font-family virker ikke, derfor har jeg hentet den fra Google Fonts i stedet*/
+    font-family: 'Poppins', sans-serif; /*sans-serif tilføjes som "fallback font" i tilfælde af siden ikke kan indlæse Poppins*/
+}
+
+/*Fælles bredde på websidens indhold*/
+.container {
+width: 95%;
+max-width: 1400px;
+margin: 0 auto;
+}
+
+/*Smooth scroll brugt på guide side i hero*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*FORSIDEN*/
+/*STYLING AF NAVIGATION*/
+.header {
+background-color: #FFFFFF;
+height: 78px;
+padding: 0 28px;
+margin-top: 12px; /*Giver afstand i toppen*/
+
+/*Dette justerer logo, menu og globus ikon*/
+display: grid; 
+grid-template-columns: 1fr auto 1fr;
+align-items: center;
+}
+
+/*Logo styling*/
+.logo {
+    font-size: 25px;
+    font-weight: regular;
+}
+
+/*Alternativ tekst styling*/
+.logo a { 
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+/*Styling af logo efter jeg havde lavet det færdige logo*/
+.nav-logo {
+    width: 170px; 
+    height: auto; /*gør så logoets proportioner ikke bliver ødelagt*/
+    display: block;
+}
+
+/*Menu styling*/
+.navigation {
+    display: flex;
+    gap: 65px;
+}
+
+/*Links i menu*/
+.navigation a { 
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+ul li {
+    float: left;
+}
+ul li a {
+    display: block;
+    text-align: center;
+    padding: 14px 50px;
+}
+ul li a:hover {
+    text-decoration: underline; /*Dette gør at en streg vises når brugeren holder musen henover*/
+    text-underline-offset: 3px; 
+}
+
+/*Forside tekst i menuen (active)*/
+.navigation .active {
+    font-weight: 600; /*Semibold så brugeren ved hvilken side de befinder sig på*/
+}
+/*Sprogvælger styling*/
+.sprogvælger {
+    justify-self: end;
+}
+.globus {
+    color: black;
+    font-size: 27px;
+}
+
+/*Her er noget af stylingen til hamburgermenuen (mobilversion)*/
+/*Dette skjuler checkboxen men den kan stadig bruges med tastatur*/
+.menu-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/*Gør så hamburgermenuen bliver skjult på desktop*/
+.hamburger {
+    display: none;
+}
+
+/*STYLING AF MAIN*/
+/*STYLING AF HERO SEKTIONEN*/
+.hero {
+    position: relative;
+    height: 520px;
+    margin: 20px 0 0 0; /*Dette giver mere luft mellem nav og hero*/
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+
+    /*background-image: linear-gradient(
+    to right,
+    rgba(0, 20, 30, 0.85),
+    rgba(0, 20, 30, 0.15)
+),
+url("img/hero-forside.avif");*/
+
+/*Billedet justeres i størrelsen så det passer med min hi-fi wireframe*/
+/*background-size: cover;*/
+/*background-position: center;*/
+/*min-height: 410px; /*Sektionens størrelse*/
+/*padding: 40px; /*Giver afstand rundt om indholdet*/
+/*display: flex; /*Sætter indholdet midt på højden*/
+/*align-items: center; /*Alt det overstående i kommentar tilstand før .hero bruges ikke alligevel*/ 
+}
+
+/*Hero billede igen*/
+.hero-forside-billede {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover; /*Gør så billedet passer i containeren med uden at blive forvrænget*/
+    object-position: center center; /*Så midten af billede vises*, men det virker ikke helt.. Man kan også bruge 50% 50%, men det virker heller ikke..*/
+    z-index: 0;
+}
+
+/*Hero billede med mørk effekt så det er læsbart*/
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.35)
+    );
+    z-index: 1;
+}
+
+/*Hero indholdet*/
+.hero-indhold {
+   position: relative;
+   z-index: 2; /*Bestemmer hvad der ligger øverst, i midten og nederst, i dette tilfælde: tekst, effekt, billede*/
+   max-width: 430px;
+}
+
+/*Styling af hero lille tekst*/
+.hero-lille-tekst {
+    color: #76E0D0;
+    font-size: 14px;
+    margin-bottom: 14px;
+}
+
+/*Styling af h1*/
+.hero h1 {
+    color: #FFFFFF;
+    font-size: 35px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+/*Styling af længere tekst i hero*/
+.hero-længere-tekst {
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 38px;
+}
+
+/*CTA knap hero*/
+.hero-cta {
+background-color: #76E0D0;
+color: black;
+text-decoration: none;
+font-size: 18px;
+padding: 12px 20px;
+border-radius: 30px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 270px;
+}
+
+/*Pil ikon i CTA*/
+.hero-cta i {
+font-size: 17px;
+}
+
+/*STYLING AF DE TRE KASSER*/
+.tre-kasser {
+    margin: 80px 30px 50px; /*Giver mere luft mellem hero og de tre kasser*/
+}
+
+.tre-kasser h2 {
+    font-size: 23px;
+    margin: 0 0 24px 0;
+    font-weight: 600;
+}
+
+/*Nu samler vi de tre kasser*/
+.kategorier {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/*Generel styling til kasserne*/
+.kategorier article {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 16px;
+    min-height: 135px;
+    box-sizing: border-box;
+}
+
+/*Ikonerne*/
+.kategorier i {
+    font-size: 28px;
+}
+
+/*Overskifterne i kasserne*/
+.kategorier h3 {
+    font-size: 19px;
+    margin: 0 0 4px 0;
+    font-weight: 600;
+}
+
+/*Teksterne i kasserne*/
+.kategorier p {
+    font-size: 18px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/*Farverne på de tre kasser*/
+.privatliv {
+    background-color: #C9F3ED;
+}
+
+.kritisk-tænkning {
+    background-color: #FFE8A3;
+}
+
+.kunstig-intelligens {
+    background-color: #BFD6EE;
+}
+
+/*STYLING AF STOR KASSE*/
+.rettigheder-kasse {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    align-items: stretch;
+    gap: 30px;
+    background-color: #EDF4F3;
+    padding: 26px 20px;
+    border-radius: 16px;
+    margin: 110px 64px 120px; /*110px giver luft mellem de tre kasser og denne store kasse, 64px ggiver luft på begge sider og 120px er luft mellem kasse og footer*/
+    box-sizing: border-box;
+    height: 450px; /*bestemmer kassens højde*/
+}
+
+/*Styling af billede*/
+.rettigheder-billede {
+    min-height: 0px; /*den er 0px fordi height i .rettigheder-kasse allerede er defineret*/
+}
+
+.rettigheder-kasse img {
+    width: 100%;
+    height: 100%;
+    min-height: 0px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+}
+
+/*Dette gør så tekstkolonnen fylder hele kassens højde*/
+.rettigheder-tekst {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Styling af overskrift og tekst*/
+.rettigheder-tekst h2 {
+    font-size: 23px;
+    line-height: 1.2;
+    margin: 0 0 14px 0;
+    font-weight: 600;
+}
+
+.rettigheder-tekst p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0 0 16px 0;
+}
+
+/*Læs mere knappen*/
+.rettigheder-læs-mere {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    padding-bottom: 3px;
+    /*Dette skubber knappen længere ned i kassen*/
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/*Hover effekt på læs mere knap*/
+.rettigheder-læs-mere:hover span {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+.rettigheder-læs-mere i {
+    font-size: 14px;
+}
+
+/*STYLING AF FOOTER*/
+.footer {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+    gap: 30px;
+    
+/*Gradient fra bunden og op*/
+background: linear-gradient(to top,
+    #041E37 0%, #102B46 100%);
+
+    color: white;
+    padding: 65px 45px 140px;
+    box-sizing: border-box;
+}
+
+/*Styling af overskrifterne i footeren*/
+.footer h2, footer h3 {
+    margin: 0 0 25px 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/*Styling af logo og slogan*/
+.footer-logo h2 {
+    font-size: 25px;
+}
+
+.footer-rigtige-logo {
+    width: 240px;
+    height: auto;
+    display: block;
+}
+
+.footer-logo p {
+    color: #76E0D0;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+/*Styling af genveje*/
+.footer-genveje a {
+    display: block; /*gør så hvert link står på egen linje*/
+    width: fit-content; /*Så hover stregen følger tekstens bredde*/
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+/*Her laver vi hover effekt så der kommer en streg under når musen holdes over*/
+.footer-genveje a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px; 
+}
+
+/*Styling af følg os*/
+.footer-følg-os a {
+    display: block; /*Block ikke inline-block, for så vil det ikke stå under hinanden*/
+    width: fit-content;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent; /*Usynlig streg*/
+    line-height: 1; /*Mindsker afstanden mellem ikon og streg*/
+    padding-bottom: 0px;
+}
+
+/*Hover effekt igen, men her bruger vi border-bottom fordi det er ikoner*/
+.footer-følg-os a:hover {
+    border-bottom: 1px solid white; /*Stregen bliver nu synlig når man hover over det*/
+ }
+
+/*Styling af kontakt os*/
+.footer-kontakt-os p {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+.footer-kontakt-os a {
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+/*Hover effekt igen igen*/
+.footer-kontakt-os a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+.footer-kontakt-os i {
+    font-size: 18px;
+    margin-right: 6px;
+    margin-bottom: 14px;
+}
+
+/*GUIDE UNDERSIDE*/
+/*STYLING AF MAIN*/
+/*HERO SEKTIONEN*/
+.guide-hero {
+    position: relative;
+    width: 95%;
+    height: 520px;
+    margin: 20px auto 30px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/*Hero billede*/
+.guide-hero-billede {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/*Mørk effekt på billede så teksten er mere læsbart (ligesom på forsiden men her er det hele billedet i stedet for fra venstre side af)*/
+.guide-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.30)
+}
+
+/*Hero sektionen indholdet*/
+.guide-hero-indhold {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*Forstår ikke helt den her*/
+    width: 90%;
+    max-width: 650px;
+    text-align: center;
+    color: white;
+    z-index: 1; /*1-tallet fortæller at dette ligger øverst*/
+}
+
+.guide-lille-tekst {
+    color: #76E0D0;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.guide-hero-indhold h1 {
+    font-size: 35px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.guide-længere-tekst {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 38px;
+}
+
+/*De tre cirkler*/
+.guide-cirkler {
+    position: absolute;
+    bottom: 190px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 72px;
+    width: 100%;
+    z-index: 2;
+}
+
+/*Hver enkelt cirkel*/
+.guide-cirkel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    width: 80px;
+}
+
+/*Ydre cirklen*/
+.guide-cirkel i {
+    width: 95px;
+    height: 95px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+/*Tkeksten under cirklerne*/
+.guide-cirkel p {
+    font-size: 18px;
+    margin: 0;    
+    color: white;
+    white-space: nowrap;
+}
+
+/*Hover effekt når man holder musen henover*/
+.guide-cirkel:hover {
+    transform: translateY(-6px);
+}
+
+/*BESKYT DIT PRIVATLIV KASSE*/
+/*Afsnittet generel styling*/
+.privatliv-sektion {
+    width: 90%;
+    max-width: 1400px;
+    margin: 100px auto 120px;
+}
+
+/*Overskrift og ikon bliver placeret ved siden af hinanden*/
+.privatliv-sektion-overskrift {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/*Ikon*/
+.privatliv-sektion-ikon {
+    width: 55px;
+    height: 55px;
+    background-color: #C9F3ED;
+    border: 1px solid #4B778A; /*Stroke*/
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Selve ikonet*/
+.privatliv-sektion-ikon i {
+    font-size: 24px;
+    color: black;
+}
+
+/*Overskriften*/
+.privatliv-sektion-overskrift h2 {
+    font-size: 24px;
+    color: black;
+    margin: 0;
+    font-weight: 600;
+}
+
+.privatliv-layout {
+    display: flex;
+    align-items: flex-start; /*Gør så billedet er på linje med paragrafen*/
+    gap: 40px;
+}
+
+/*Den store kasse med overskrift, tekst og billede*/
+.privatliv-indhold {
+    background-color: #EDF4F3;
+    border-radius: 15px;
+    padding: 35px;
+}
+
+/*Teksten*/
+.privatliv-tekst {
+    flex: 1;
+    color: black;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/*Afstand under p*/
+.privatliv-tekst p {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/*Bullet points*/
+.privatliv-tekst ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+/*Afstand mellem bullet points*/
+.privatliv-tekst li {
+    margin-bottom: 30px;
+}
+
+/*Placering af billede*/
+.privatliv-billede {
+    flex: 1;
+}
+
+/*Billedet*/
+.privatliv-billede img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/*TÆNK KRITISK KASSE*/
+/*Placeringen af sektionen*/
+.tænk-kritisk-sektion {
+    width: 90%;
+    max-width: 1400px;
+    margin: 120px auto 120px;
+}
+
+/*Kassen*/
+.tænk-kritisk-indhold {
+    background-color: #EDF4F3;
+    border-radius: 15px;
+    padding: 35px;
+}
+
+/*Overskrift og ikon*/
+.tænk-kritisk-overskrift {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/*Ikonets baggrund*/
+.tænk-kritisk-ikon {
+    width: 55px;
+    height: 55px;
+    background-color: #FFE8A3;
+    border: 1px solid #CDA52D;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Ikonet*/
+.tænk-kritisk-ikon i {
+    font-size: 23px;
+    color: black;
+}
+
+/*Overskriften*/
+.tænk-kritisk-overskrift h2 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 600;
+}
+
+/*Tekst og billedet ved siden af hinanden*/
+.tænk-kritisk-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/*Teksten*/
+.tænk-kritisk-tekst {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/*Paragrafen*/
+.tænk-kritisk-tekst p {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/*Bullet points*/
+.tænk-kritisk-tekst ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+/*Afstand mellem bullet pointsne*/
+.tænk-kritisk-tekst li {
+    margin-bottom: 30px;
+}
+
+/*Placering af billede*/
+.tænk-kritisk-billede {
+    flex: 1;
+}
+
+/*Selve billedt*/
+.tænk-kritisk-billede img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/*FORSTÅ AI KASSE*/
+/*Placeringen af sektionen*/
+.ai-sektion {
+    width: 90%;
+    max-width: 1400px;
+    margin: 120px auto 120px;
+}
+
+/*Den store kasse*/
+.ai-indhold {
+    background-color: #EDF4F3;
+    border-radius: 15px;
+    padding: 35px;
+}
+
+/*Overskrift og ikon*/
+.ai-overskrift {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/*Ikoents baggrund*/
+.ai-ikon {
+    width: 55px;
+    height: 55px;
+    background-color: #BFD6EE;
+    border: 1px solid #537DA7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Ikonet generelt*/
+.ai-ikon i {
+    font-size: 24px;
+    color: black;
+}
+
+/*Overskriften*/
+.ai-overskrift h2 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 600;
+}
+
+/*Tekst og billede ved siden af hinanden*/
+.ai-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/*Teksten*/
+.ai-tekst {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/*Paragraf*/
+.ai-tekst p {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/*Bullet points*/
+.ai-tekst ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+/*Afstand mellem pointsne*/
+.ai-tekst li {
+    margin-bottom: 30px;
+}
+
+/*Billedets placering*/
+.ai-billede {
+    flex: 1;
+}
+
+/*Billedet*/
+.ai-billede img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/*KONTAKT UNDERSIDE*/
+/*STYLING AF MAIN*/
+/*STYLING AF HERO SEKTIONEN*/
+.kontakt-hero {
+    position: relative;
+    width: 95%;
+    max-width: 1400px;
+    height: 520px;
+    margin: 20px auto 80px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/*Så baggrundsbilledet fylder hele sektionen*/
+.kontakt-hero-billede {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/*Mørk tone over billedet så teksten er mere læsbart*/
+.kontakt-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.10);
+    z-index: 1;
+}
+
+/*Placering af tekst og CTA*/
+.kontakt-hero-indhold {
+    position: absolute;
+    top: 50%;
+    left: 2.5%;
+    transform: translateY(-50%);
+    max-width: 430px;
+    color: white;
+    z-index: 2;
+}
+
+/*Lille tekst*/
+.kontakt-lille-tekst {
+    color: #76E0D0;
+    font-size: 14px;
+    margin: 0 0 5px;
+}
+
+/*Overskrift*/
+.kontakt-hero-indhold h1 {
+    font-size: 35px;
+    margin: 0 0 5px;
+    color: white;
+    font-weight: 600;
+}
+
+/*Paragraf*/
+.kontakt-længere-tekst {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+    color: white;
+}
+
+/*CTA's så de står ved aiden af hinanden*/
+.kontakt-hero-ctas {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 55px;
+}
+
+/*Skriv til os CTA*/
+.kontakt-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #76E0D0;
+    color: black;
+    padding: 10px 13px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+/*Ring på.. CTA (2)*/
+.kontakt-cta-2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #3E3333;
+    color: white;
+    border: 2px solid #8C8686;
+    padding: 10px 13px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+/*Hover effekt på skriv til os CTA så farven bliver lidt mørkere*/
+.kontakt-cta:hover {
+    transform: translateY(-2px);
+    background-color: #5BC0B1;
+}
+
+/*Hover effekt på ring på.. CTA (2)*/
+.kontakt-cta-2:hover {
+    transform: translateY(-2px);
+    background-color: #504645;
+    border: 2px solid white
+}
+
+/*STYLING AF HELE KONTAKT SEKTIONEN*/
+/*Gør så kontaktinfo og formularen står ved siden af hinanden*/
+.kontakt-sektion {
+    width: 91%;
+    max-width: 1400px;
+    margin: 60px auto 120px;
+    display: flex;
+    align-items: flex-start;
+    gap: 13%;
+}
+
+/*STYLING AF KONTAKT TEKST OG INFORMATIONER (VENSTRE SIDE)*/
+/*Nu bestemmer jeg bredden på den venstre kolone*/
+.kontakt-info {
+    width: 35%;
+    flex-shrink: 0;
+}
+
+/*Overskriften*/
+.kontakt-info h2 {
+    font-size: 24px;
+    color: black;
+    margin: 0 0 15px;
+    font-weight: 600;
+}
+
+/*Paragrafen*/
+.kontakt-info p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/*Ikonet og kontaktinfo bliver sat på samme linje*/
+.kontakt-info-punkt {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/*Cirklerne udenom ikonerne*/
+.kontakt-info-ikon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #C9F3ED;
+    border: 1px solid #4B778A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /*?*/
+}
+
+/*Selve ikonerne*/
+.kontakt-info-ikon i {
+    font-size: 18px;
+    color: black;
+}
+
+/*Tlf og e-mail*/
+.kontakt-info-punkt a {
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+
+/*STYLING AF KONTAKTFORMULAR (HØJRE SIDE)*/
+/*Selve kassen*/
+.kontakt-formular-kasse {
+    flex: 1; /*I stedet for width fordi flex: 1; betyder at den vil fylde alt den ledige plads ved siden af den venstre kolonne*/
+    background-color: #EDF4F3;
+    border-radius: 15px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/*Overskirften i kassen*/
+.kontakt-formular-kasse h2 {
+    font-size: 22px;
+    color: black;
+    margin: 0 0 5px;
+}
+
+/*Lille tekst om * felterne*/
+.kontakt-formular-kasse p {
+    font-size: 18px;
+    margin: 0 0 35px;
+}
+
+/*Formularens felter*/
+/*Dette holder label og input lodret samlet*/
+.formular-felt {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+/*Teksten over felterne*/
+.formular-felt label {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+/*Styling af input, dropdown og tekstfelt*/
+.kontakt-formular input, .kontakt-formular select, .kontakt-formular textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #4B778A;
+    border-radius: 10px;
+    background-color: #F1F3F3;
+    font-size: 18px;
+    color: black;
+    box-sizing: border-box;
+}
+
+/*Gør så vælg et emne også får grå tekst*/
+.kontakt-formular select:invalid {
+    color: #868686;
+}
+
+/*Højden på inoutfelterne og dropdown*/
+.kontakt-formular input, .kontakt-formular select {
+    height: 51px;
+}
+
+/*Beskedfelt*/
+.kontakt-formular textarea {
+    height: 160px;
+    resize: vertical;
+}
+
+/*Effekt så man tydeligt kan se hvilket felt man har valgt i dropdown*/
+.kontakt-formular input:focus, .kontakt-formular select:focus, .kontakt-formular textarea:focus {
+    outline: 2px solid #4B778A;
+    outline-offset: 2px;
+}
+
+/*Send besked*/
+.kontakt-send-besked-knap {
+    width: 100%;
+    padding: 12px;
+    background-color: #76E0D0;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer; /**/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/*Ændre farven lidt når musen holdes henover*/
+.kontakt-send-besked-knap:hover {
+ background-color: #5BC0B1;
+}
+
+/*Gør så det bliver tydelig markeret ved tastaturnavigationen*/
+.kontakt-send-besked-knap:focus-visible {
+    outline: 2px solid #4B778A;
+    outline-offset: 3px;
+}
+
+/*Css der gør at hamburgermenu bliver skjult på desktop, skrives her uden for media queiryen*/
+
+/*MOBIL VERSION (MAX-WIDTH) så hjemmesiden bliver responsiv*/
+@media screen and (max-width: 600px){ /*601px?*/
+/*STYLING AF NAVIGATION*/
+    /*Navs placering*/
+.header {
+    height: 70px;
+    padding: 0 20px;
+    margin-top: 0;
+    display: flex; /*Logo til venstre og ikon og hamburger til højre*/
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+/*Dette gør logoet mindre på mobil*/
+.nav-logo {
+    width: 140px;
+}
+
+/*Dette viser hamburger på mobil*/
+.hamburger {
+    display: block;
+    font-size: 26px;
+    color: black;
+    cursor: pointer;
+    order: 3;
+}
+
+/*Skjuler krydset når menuen er lukket*/
+.hamburger .menu-luk {
+    display: none;
+}
+
+/*Skjuler desktop navn på mobil*/
+.navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 100; /*Just in case*/
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*Menu punkterne der står under hinanden*/
+.navigation ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 0;
+    overflow: visible;
+}
+
+/*Dette fjerner float der er på desktop*/
+.navigation ul li {
+    float: none;
+    width: 100%;
+}
+
+/*Styling af links i menuen*/
+.navigation ul li a {
+    padding: 15px 25px;
+    text-align: left;
+    font-size: 18px;
+}
+
+/*Globus ikonet*/
+.sprogvælger {
+    margin-left: auto;
+    margin-right: 25px;
+    order: 2;
+}
+
+.globus {
+    font-size: 22px;
+}
+
+/*Når hamburger åbnes*/
+/*Dette viser nav når checkbox er markeret*/
+.menu-toggle:checked ~ .navigation { /*~ tegnet betyder at css finder søskeneelementet som her er nav og så ændres det til block i stedet for none*/
+    display: block;
+}
+
+/*Skjuler hamburgerikonet*/
+.menu-toggle:checked + .hamburger .menu-aaben {
+    display: none;
+}
+
+/*Viser kryds i stedet*/
+.menu-toggle:checked + .hamburger .menu-luk {
+    display: inline;
+}
+
+/*Gør menu-knappen synlig ved tastaturnavigationen*/
+.menu-toggle:focus-visible + .hamburger {
+    outline: 2px solid black;
+    outline-offset: 5px;
+}
+
+/*STYLING AF HERO - FORSIDEN*/
+/*Dette gør hero mindre og tilpasser indholdet*/
+.hero {
+    height: auto;
+    min-height: 450px;
+    padding: 25px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/*Så billedet fylder hele heroen*/
+.hero-forside-billede {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*Effekt på billedet*/
+.hero::before {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.75)
+        rgba(0, 0, 0, 0.25)
+    );
+}
+
+/*Så teksten ikke bliver for bred*/
+.hero-indhold {
+    width: 100%;
+    max-width: 100%;
+}
+
+/*Lille tekst*/
+.hero-lille-tekst {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/*Overskrift*/
+.hero h1 {
+    font-size: 27px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/*Tilpasser paragraf til mobil*/
+.hero-længere-tekst {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/*CTA knap*/
+.hero-cta {
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 12px 16px;
+    gap: 15px;
+}
+
+/*Gør pilen mindre*/
+.hero-cta i {
+    font-size: 14px;
+}
+
+/*STYILING AF DE TRE KASSER*/
+/*Giver afstand mellem kasserne*/
+.tre-kasser {
+    margin: 50px 15px 40px;
+}
+
+/*Overskiften*/
+.tre-kasser h2 {
+    font-size: 21px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/*De tre kasser under hinanden*/
+.kategorier {
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+/*Kassernes størrelse*/
+.kategorier article {
+    padding: 20px;
+    min-height: auto;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+/*Ikonerne*/
+.kategorier i {
+    font-size: 25px;
+    flex-shrink: 0;
+}
+
+/*Overskifterne i kasserne*/
+.kategorier h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+/*Paragraf inde i kasserne*/
+.kategorier p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/*STYLING AF DEN STORE KASSE*/
+/*Så der kun er én kolonne*/
+.rettigheder-kasse {
+    grid-template-columns: 1fr;
+    height: auto; /*Betyder at højden tilpasser sig indholdet*/
+    gap: 25px;
+    padding: 25px 20px;
+    margin: 60px 15px 70px;
+}
+
+/*Tekstkolonnen så den fylder bredden*/
+.rettigheder-tekst {
+    width: 100%;
+}
+
+/*Overskriften gøres mindre*/
+.rettigheder-tekst h2 {
+    font-size: 21px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/*Tilpasser paragrafen*/
+.rettigheder-tekst p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/*Læs mere linket*/
+.rettigheder-læs-mere {
+    font-size: 17px;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+/*Billedet*/
+.rettigheder-billede {
+    height: 220px;
+    min-height: 0;
+}
+
+/*Billedet fylder sin kasse uden at blive stretched*/
+.rettigheder-kasse img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*STYLING AF FOOTEREN*/
+.footer {
+    grid-template-columns: 1fr; /*Fra 4 kolonner til 1*/
+    gap: 35px;
+    padding: 45px 25px 60px;
+}
+
+/*Loget gøres mindre*/
+.footer-rigtige-logo {
+    width: 190px;
+    height: auto;
+}
+
+/*Slogan*/
+.footer-logo p {
+    font-size: 14px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+/*Overskrifterne gøres mindre*/
+.footer h2, .footer h3 {
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+/*Links bliver tilpasset*/
+.footer-genveje a {
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+/*Ikoner følg os*/
+.footer-følg-os a {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+/*Kontaktoplysninger*/
+.footer-kontakt p, .footer-kontakt a {
+    font-size: 16px;
+}
+
+/*Ikoner kontakt*/
+.footer-kontakt-os i {
+    font-size: 16px;
+}
+
+/*STYLING AF HERO ER IKKE NØDVENDIGT DA DET SER FINT UD VED 600PX - GUIDE*/
+
+/*STYLING AF BESKYT DIT PRIVATLIV KASSE*/
+/*Vi tilpasser afstanden omkring sektionen*/
+.privatliv-sektion {
+    width: 90%;
+    margin: 60px auto 70px;
+}
+
+/*Store kasse*/
+.privatliv-indhold {
+    padding: 25px 20px;
+}
+
+/*Overskrift og ikon*/
+.privatliv-sektion-overskrift {
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/*Cirklen gøres mindre omkring ikonet*/
+.privatliv-sektion-ikon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
+/*Gør selve ikonet mindre*/
+.privatliv-sektion-ikon i {
+    font-size: 20px;
+}
+
+/*Gør overskirtne mindre*/
+.privatliv-sektion-overskrift h2 {
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+/*Tekst og billede kommer under hinanden*/
+.privatliv-layout {
+    flex-direction: column;
+    gap: 20px;
+}
+
+/*Teksten*/
+.privatliv-tekst {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/*Afstand under teksten*/
+.privatliv-tekst p {
+    margin-bottom: 20px;
+}
+
+/*Her tilpasser vi listen*/
+.privatliv-tekst ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/*Afstanden mellem punkterne*/
+.privatliv-tekst li {
+    margin-bottom: 15px;
+}
+
+/*Billedet*/
+.privatliv-billede {
+    width: 100%;
+}
+
+.privatliv-billede img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/*STYLING AF TÆNKT KRITISK KASSEN*/
+/*Tilpasser afstanden omkring sektionen*/
+.tænk-kritisk-sektion {
+    width: 90%;
+    margin: 60px auto 70px;
+}
+
+/*Gør den store kasse tilpasset til mobile*/
+.tænk-kritisk-indhold {
+    padding: 25px 20px;
+}
+
+/*Overskriften og ikon*/
+.tænk-kritisk-overskrift {
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/*Cirklen omkring logoet*/
+.tænk-kritisk-ikon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
+/*Selve ikonet*/
+.tænk-kritisk-ikon i {
+    font-size: 20px;
+}
+
+/*Overskriften*/
+.tænk-kritisk-overskrift h2 {
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+/*Sætter tkst og billede under hinanden*/
+.tænk-kritisk-layout {
+    flex-direction: column;
+    gap: 20px;
+}
+
+/*Teksten*/
+.tænk-kritisk-tekst {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/*Afstand under tekst*/
+.tænk-kritisk-tekst p {
+    margin-bottom: 20px;
+}
+
+/*Listen*/
+.tænk-kritisk-tekst ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/*Afstand mellem punkterne*/
+.tænk-kritisk-tekst li {
+    margin-bottom: 15px;
+}
+
+/*Billedet*/
+.tænk-kritisk-billede {
+    width: 100%;
+}
+
+.tænk-kritisk-billede img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/*STYLING AF FORSTÅ AI KASSEN*/
+/*Tilpasser afstanden omkring sektionen*/
+.ai-sektion {
+    width: 90%;
+    margin: 60px auto 70px;
+}
+
+/*Den store kasse*/
+.ai-indhold {
+    padding: 25px 20px;
+}
+
+/*Overskrift og ikon*/
+.ai-overskrift {
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/*Cirklen omkring ikonet*/
+.ai-ikon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+}
+
+/*Selve ikonet*/
+.ai-ikon i {
+    font-size: 20px;
+}
+
+/*Overskriften*/
+.ai-overskrift h2 {
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+/*Tekst og billede under hinanden*/
+.ai-layout {
+    flex-direction: column;
+    gap: 20px;
+}
+
+/*Teksten*/
+.ai-tekst {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/*Afstand under teksten*/
+.ai-tekst p {
+    margin-bottom: 20px;
+}
+
+/*Listen*/
+.ai-tekst ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+
+/*Afstand mellem punkterne*/
+.ai-tekst li {
+    margin-bottom: 15px;
+}
+
+/*Billedet*/
+.ai-billede {
+    width: 100%;
+}
+
+.ai-billede img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/*STYLING AF HERO - KONTAKT*/
+/*Heroens størrelse*/
+.kontakt-hero {
+    width: 95%;
+    height: auto;
+    min-height: 480px;
+    margin: 20px auto 60px;
+    display: flex;
+    align-items: center;
+}
+
+/*Billedet*/
+.kontakt-hero-billede {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*Billedet der bliver mørkere*/
+.kontakt-hero::before {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/*Placering af tekst og knapper*/
+.kontakt-hero-indhold {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    padding: 30px 30px;
+    box-sizing: border-box;
+}
+
+/*Lille tekst*/
+.kontakt-lille-tekst {
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+/*Overskriften*/
+.kontakt-hero-indhold h1 {
+    font-size: 27px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/*Intro tekst*/
+.kontakt-længere-tekst {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/*De to CTA knapper*/
+.kontakt-hero-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+/*Begge CTA-knapper*/
+.kontakt-cta, .kontakt-cta-2 {
+    font-size: 15px;
+    padding: 12px 15px;
+    min-height: 44px;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+}
+
+/*Giver afstand mellem tekst og pil*/
+.kontakt-cta {
+    justify-content: space-between;
+}
+
+/*STYLING AF KONTAKT INDHOLDET*/
+/*Kontaktinfo og formular kommer til at stå under hiannden*/
+.kontakt-sektion {
+    width: 90%;
+    margin: 50px auto 70px;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/*Gør kontaktinfo samme bredde som sektionen*/
+.kontakt-info {
+    width: 100%;
+}
+
+/*Overskriften*/
+.kontakt-info h2 {
+    font-size: 21px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/*Teksten*/
+.kontakt-info p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/*Afstand mellem kontaktoplysningerne*/
+.kontakt-info-punkt {
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/*Cirklerne omkring ikonerne*/
+.kontakt-info-ikon {
+    width: 42px;
+    height: 42px;
+}
+
+/*Ikonerne*/
+.kontakt-info-ikon i {
+    font-size: 16px;
+}
+
+/*Tlf og email*/
+.kontakt-info-punkt a {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+/*Gør kontaktformularen ligeså bred som sektionen*/
+.kontakt-formular-kasse {
+    width: 100%;
+    flex: none;
+    padding: 25px 20px;
+}
+
+/*Overskrift*/
+.kontakt-formular-kasse h2 {
+    font-size: 21px;
+    line-height: 1.6;
+    margin: 8px;
+}
+
+/*Teksten om * felterne*/
+.kontakt-formular-kasse p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/*Afstand mellem formular felterme*/
+.formular-felt {
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+/*Teksten over felterne*/
+.formular-felt label {
+    font-size: 15px;
+}
+
+/*Teksten i felterne*/
+.kontakt-formular input, .kontakt-formular select, .kontakt-formular textarea {
+    font-size: 16px;
+}
+
+/*Beskedfeltet*/
+.kontakt-formular textarea {
+    height: 140px;
+}
+
+/*Send besked knappen*/
+.kontakt-send-besked-knap {
+    font-size: 16px;
+    min-height: 44px;
+    padding: 12px;
+}
+
+}
+

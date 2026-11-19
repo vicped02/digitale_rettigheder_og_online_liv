@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide</title>
+    
+<!--Favicon-->
+<link rel="icon" type="image/png" href="img/favicon.png">
+
+<!--Poppins skrifttype hentet fra Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+<!--Font Awesome link-->
+    <script src="https://kit.fontawesome.com/3b1f40fc5a.js"></script>
+</head>
+
+<body>
+<!--NAVIGATION (GENBRUGT FRA INDEX.HTML)-->
+<header class="header">
+
+    <!--Logo-->
+    <div class="logo">
+    <a href="index.html">
+    <img src="img/Logo.png" alt="Dit Online liv" class="nav-logo">
+    </a>
+    </div>
+
+<!--Mobilversion skrives her imellem logo og nav (genbrugt fra index.html)-->
+<input type="checkbox" id="menu-toggle" class="menu-toggle"> <!--Checkbox har styr på om mobilmenuen er åben eller ej-->
+
+<!--Label gør så man kan klikke på hamburger ikonet-->
+<label for="menu-toggle" class="hamburger" aria-label="Åben eller luk menuen">
+    <!--Dette vises når menuen er lukket. Derfor skrives der "menu-aaben" inde i Font Awesom ikonet så vi kan kalde på det i css-->
+    <i class="fa-solid fa-bars menu-aaben" aria-hidden="true"></i>
+
+
+<!--Dette vises når menuen er åben-->
+    <i class="fa-solid fa-xmark menu-luk" aria-hidden="true"></i>
+</label>
+
+<!--Nav menu-->
+    <nav class="navigation">
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li class="active"><a href="guide.html">Guide</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+<!--Søgefelt skulle have været her, men blev ikke prioriteret at lave denne gang-->
+
+    <!--Sprogvælger ikon-->
+    <div class="sprogvælger">
+        <a href="#" class="globus">
+    <i class="fa-solid fa-globe"></i>
+        </a> 
+    </div>
+    </header>
+
+<!--MAIN INDHOLDET-->
+<main>
+
+<!--HERO SEKTIONEN-->
+<div class="guide-hero">
+    <img src="img/guide-hero.jpg" alt="Mand med mobil i hånden" class="guide-hero-billede">
+
+    <div class="guide-hero-indhold">
+        <p class="guide-lille-tekst">Guide</p>
+        <h1>Læs guiden og bliv klogere</h1>
+        <p class="guide-længere-tekst">Herunder finder du tre essentielle områder, der hjælper<br>dig i at begå dig sikkert og kritisk online</p>
+    </div>
+
+</div>
+
+<!--De tre cirkler-->
+<div class="guide-cirkler">
+    <a href="#privatliv" class="guide-cirkel">
+        <i class="fa-solid fa-user-shield" aria-hidden="true"></i> <!--Aria-hidden="true" bruger vi af samme grund som forklaret i index.html-->
+        <p>Privatliv</p>
+    </a>
+
+    <a href="#kildekritik" class="guide-cirkel">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <p>Kildekritik</p>
+    </a>
+
+    <a href="#ai" class="guide-cirkel">
+        <i class="fa-solid fa-brain"></i>
+        <p>AI</p>
+    </a>
+
+</div>
+
+<!--BESKYT DIT PRIVATLIV-->
+<section id="privatliv" class="privatliv-sektion"> <!--Den har et id så scroll smooth virker-->
+
+<!--Her kommer den store kasse med alt indhold-->
+<div class="privatliv-indhold">
+
+<!--Overskrift og ikon-->
+    <div class="privatliv-sektion-overskrift">
+        <div class="privatliv-sektion-ikon">
+            <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+        </div>
+
+            <h2>Beskyt dit privatliv</h2>
+    </div>
+
+<!--Paragraf, bullet points og billede-->
+    <div class="privatliv-layout">
+
+        <div class="privatliv-tekst">
+            <p>Det kan ikke ungåes at vi efterlader oplysninger om os selv på nettet. Derfor er det vigtigt at beskytte dem, og være opmærksom på hvad du deler.</p>
+            <ul>
+                <li>Del aldrig fortrolige oplysninger på sociale medier, CV eller ligende.</li>
+                <li>Log af, når du har brugt offentlige computere.</li>
+                <li>Brug stærke adgangskoder (der findes apps der kan hjælpe med at holde styr på dette, som f.eks 1Password)</li>
+            </ul>
+        </div>
+
+<!--Billede-->
+    <div class="privatliv-billede">
+        <img src="img/hængelås-computer.jpg" alt="Hængelås og en computer">
+    </div>
+        
+        </div>
+    </div>
+</section>
+
+<!--TÆNK KRITISK-->
+<section id="kildekritik" class="tænk-kritisk-sektion">
+
+<!--Stor kasse med alt indhold-->
+    <div class="tænk-kritisk-indhold">
+
+<!--Overskrift og ikon-->
+<div class="tænk-kritisk-overskrift">
+    <div class="tænk-kritisk-ikon">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+    </div>
+
+    <h2>Tænk kritisk</h2>
+</div>
+
+<!--Tekst og billede-->
+<div class="tænk-kritisk-layout">
+    <div class="tænk-kritisk-tekst">
+        <p>Hver dag møder du nyheder, opslag og informationer på sociale medier, men man kan ikke altid stole på det man ser. Derfor er det vigtigt at forholde sig kildekritisk.</p>
+        <ul>
+            <li>Lyder en historie underlig eller usansynlig, så vær ekstra kritisk, før du deler den.</li>
+            <li>Tjek hvor kilden kommer fra og om den er troværdig.</li>
+            <li>Skriver andre medier om samme nyhed. Hvis ikke, er der større chance for at den er falsk.</li>
+        </ul>
+    </div>
+
+<!--Billedet-->
+<div class="tænk-kritisk-billede">
+<img src="img/hænder-og-computer.jpg" alt="Kvinde der skriver på en computer">
+</div>
+
+        </div>
+
+    </div>
+</section>
+
+<!--FORSTÅ AI-->
+<section id="ai" class="ai-sektion">
+
+    <!--Stor kasse med indhold-->
+    <div class="ai-indhold">
+
+<!--Overskrift og ikon-->
+        <div class="ai-overskrift">
+            <div class="ai-ikon">
+                <i class="fa-solid fa-brain" aria-hidden="true"></i>
+            </div>
+
+            <h2>Forstå AI</h2>
+        </div>
+        
+<!--Tekst og billede-->
+<div class="ai-layout">
+    <div class="ai-tekst">
+        <p>Kunstig intelligens fylder i stigende grad mere og mere i vores digitale hverdag. AI kan skabe billeder, videoer, lyd og mere, der ser ægte ud. Derfor er det vigtigt at være opmærksom, om noget er AI-genereret indhold.</p>
+        <ul>
+            <li>Del aldrig fortrolige oplysninger med f.eks. en chatbot.</li>
+            <li>Vær opmærksom på “AI-bias”. Det er fordomsfulde antagelser der er indbygget i teknologien, og du kan støde på det på nettet.</li>
+            <li>Billeder, videoer og lign. kan være AI-genereret, så tjek en ekstra gang om det er sandt eller AI før du deler.</li>
+        </ul>
+    </div>
+
+<div class="ai-billede">
+<img src="img/ai.jpg" alt="AI illustration">
+</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!--FOOTER SEKTIONEN (GENBRUGT FRA INDEX.HTML)-->
+<!--Section er et mere semantisk element som man bruger når noget indhold hænger sammen som en mere selvstændig sektion, så her ville man en anden gang have brugt section i stedet for div-->
+<footer class="footer">
+
+<!--Logo og slogan-->
+<div class="footer-logo">
+    <img src="img/Logo-footer.png" alt="Dit Online Liv" class="footer-rigtige-logo">
+    <p>- Bliv klogere på dit online liv</p>
+</div>
+
+<!--Genveje-->
+<div class="footer-genveje">
+    <h3>Genveje</h3>
+    <a href="index.html">Forside</a>
+    <a href="guide.html">Guide</a>
+    <a href="kontakt.html">Kontakt os</a>
+</div>
+
+<!--Følg os-->
+<div class="footer-følg-os">
+    <h3>Følg os</h3>
+    
+    <a href="#" aria-label="Facebook"> <!--fortæller en skærmlæser at dette link fører dem hen til Facebook-->
+        <i class="fa-brands fa-facebook" aria-hidden="true"></i> <!--fortæller en skærmlæser at den skal ignorere ikonen fordi det fortæller aria-label allerede-->
+    </a>
+
+    <a href="#" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+    </a>
+
+    <a href="#" aria-label="Linkedin">
+        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+    </a>
+</div>
+
+<!--Kontakt os-->
+<div class="footer-kontakt-os">
+    <h3>Kontakt os</h3>
+    <p>
+        <a href="tel:11223344">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i> <!--Ikonet er inde i a-taget så det også er klikbart-->
+            +45 11 22 33 44</a>
+    </p>
+
+    <p>
+        <a href="mailto:kontakt@ditonlineliv.dk">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            kontakt@ditonlineliv.dk</a>
+    </p>
+</div>
+</footer>
+
+</body>
+</html>
